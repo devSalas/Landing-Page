@@ -59,7 +59,7 @@ function App() {
 			</div>
 
 			<div class="row-span-2 col-span-2 pb-72"> <Home/></div>
-			 
+
 		</div>
 	)
 }
