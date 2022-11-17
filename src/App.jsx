@@ -3,7 +3,7 @@ import Home from './pages/home'
 
 function App() {
 	return (
-		<div className=" app max-w-7xl m-auto px-8 grid  grid-cols-layout  grid-rows-layout h-screen">
+		<div className=" app max-w-7xl m-auto px-8 grid grid-cols-layout  grid-rows-layout h-screen">
 
 			<div class="col-span-3 bg-green-500 sticky top-0 ">
 			</div>
@@ -16,7 +16,7 @@ function App() {
 			</div>
 
 			<div class="row-span-2 col-span-2 pb-72"> <Home/></div>
-			 
+
 		</div>
 	)
 }
