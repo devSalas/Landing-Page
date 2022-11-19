@@ -7,11 +7,8 @@ import TabBar from './components/TabBar'
 
 function App() {
 	return (
-		<div className="app max-w-7xl m-auto px-8 grid md:ml-16  grid-cols-layout  grid-rows-layout h-screen ">
+		<div className="app max-w-7xl m-auto md:pt-20 md:pl-20">
 
-			
-
-			
 			<TabBar />
 			<div class="row-span-2 col-span-2 pb-72">
 				<Route path='/' component={Home} />
