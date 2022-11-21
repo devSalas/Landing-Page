@@ -70,6 +70,8 @@ export const user = {
       id:"1101",
       title:"1000 miles of sebreing stram",
       url:"videos/001.mp4",
+      date:"",
+      tags:["nature", "city"]
     }
   ]
 }
