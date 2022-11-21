@@ -96,7 +96,7 @@ export const video = {
       id:"3001",
       user: {
         id:"0105",
-        name:"moood",
+        name:"Moood",
         image:"https://randomuser.me/api/portraits/men/67.jpg"
       },
       content:"You are doing the right thing",
@@ -106,7 +106,7 @@ export const video = {
       id:"3002",
       user: {
         id:"0108",
-        name:"peter",
+        name:"Peter",
         image:"https://randomuser.me/api/portraits/men/61.jpg"
       },
       content:"buen video",

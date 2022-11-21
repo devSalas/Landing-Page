@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import UserCard from '../components/UserCard'
 import Comentarios from '../components/Comentarios'
-import VideoCard from '../components/VideoCard'
 import VideoCardSmall from '../components/VideoCardSmall'
 import {video} from '../data'
+import { getVideoById} from '../services/fech';
 
 export default function Video() {
 
-  const [data, setData] = useState({})
+  //const {data, isLoading} = useQuery({ queryKey: ['video'], queryFn: getVideoById() })
+  //if(isLoading) return (<h2>esta cargando</h2>)
 
+
+  const [data, setData] = useState({})
   useEffect(()=>{
     setData(video)
-  },[])
+  }, [])
 
-  console.log(data);
-  console.log(data?.comments?.length);
-
-  if(data.title === undefined) return null
+  if (data.title === undefined) return(<h2>hola mundo</h2>)
 
   return (
     <div className='flex'>
-      <main className='grid gap-4 w-2/3'>
+      <main className='grid gap-8 w-2/3'>
         <section>
           <video controls loop autoPlay className="rounded-xl min-w-full aspect-video" src={data.url} ></video>
         </section>
