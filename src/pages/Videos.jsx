@@ -1,32 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import UserCard from '../components/UserCard'
+import Comentarios from '../components/Comentarios'
 import VideoCard from '../components/VideoCard'
 import VideoCardSmall from '../components/VideoCardSmall'
+import {video} from '../data'
 
 export default function Video() {
-  return (
-    <div className='pt-16 flex'>
-      <main className='w-2/3'>
-        <div>
-          <video controls loop autoPlay className="rounded-xl min-w-full aspect-video" src="videos/001.mp4"></video>
-        </div>
-        <section>
-          <article className='py-8'>
-            <div className='flex justify-between py-4'>
-              <h2 className='text-xl'>1000 miles of sebring - 2022</h2>
-              <div className='flex gap-4'>
-                <button>me gusta</button>
-                <button>no me gusta</button>
-              </div>
-            </div>
-            <UserCard />
-          </article>
-          <article>
-            <p>7 014 comments</p>
-            <input type="text" placeholder='escribe un comentario'/>
-          </article>
 
+  const [data, setData] = useState({})
+
+  useEffect(()=>{
+    setData(video)
+  },[])
+
+  console.log(data);
+  console.log(data?.comments?.length);
+
+  if(data.title === undefined) return null
+
+  return (
+    <div className='flex'>
+      <main className='grid gap-4 w-2/3'>
+        <section>
+          <video controls loop autoPlay className="rounded-xl min-w-full aspect-video" src={data.url} ></video>
         </section>
+
+        <section>
+          <article className='flex justify-between py-4 items-center'>
+            <h2 className='text-xl'>{data.title}</h2>
+            <div className='flex '>
+              <input className='w-5' type="image" src="me-gusta.svg" alt="" />
+              <input className='p-2' type="image" src="no-me-gusta.svg" alt="" />
+            </div>
+          </article>
+          <UserCard user={data.user} />
+        </section>
+        <Comentarios comments={data.comments} />
       </main>
 
       <aside className=' w-1/3 ml-16 flex flex-col gap-8'>
