@@ -14,6 +14,7 @@ export default function AsideVideos({videos}) {
           videos?.map(({id, title, url, user})=>(
             <VideoCardSmall
             key={id}
+            id={id}
             title={title}
             video={url}
             user={user.name}

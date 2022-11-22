@@ -1,6 +1,7 @@
 import {Link} from 'wouter'
 
 export default function VideoCardSmall({id, title, video, image, user}) {
+
   return (
     <Link href={`/video/${id}`} >
       <div className="flex gap-4 items-center">
