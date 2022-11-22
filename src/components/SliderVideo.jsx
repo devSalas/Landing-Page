@@ -2,13 +2,23 @@ import {useState, useRef} from 'react'
 import {videosData} from "../data"
 import VideoCard from './VideoCard'
 import {Link} from 'wouter'
+import {getVideos} from '../services/fech'
+import {useQuery} from '@tanstack/react-query'
+
 
 export default function SliderVideo() {
+
+  const {data, isLoading} = useQuery({queryKey:["videos"], queryFn: getVideos})
+
+  console.log(data)
 
   const ref = useRef()
 
   const handleRight = (e) => ref.current.scrollLeft += -400;
   const handleLeft = (e) => ref.current.scrollLeft += 400;
+
+  if(isLoading) return (<h2>esta cargando</h2>)
+
 
   return (
     <section>
@@ -25,8 +35,8 @@ export default function SliderVideo() {
         <button onClick={handleRight} className='absolute h-full left-0 p-4 z-20 bg-gradient-to-r to-transparent from-black'>Left</button>
         <div ref={ref} className='scroll-smooth overflow-x-scroll flex flex-col flex-wrap h-72 gap-4'>
           {
-            videosData.map(({id, title, url, user})=>(
-              <VideoCard key={id} title={title} video={url} user={user.name} image={user.image} />
+            data.map(({id, title, url, user})=>(
+              <VideoCard key={id} id={id} title={title} video={url} user={user.name} image={user.image} />
             ))
           }
         </div>

@@ -1,4 +1,4 @@
-const URL = ""
+const URL = "https://backend-playvideos-production.up.railway.app/api/v1/videos"
 
 export function postComment(obj) {
 
@@ -14,9 +14,9 @@ export function postComment(obj) {
   
 }
 
-export function getVideoById(id) {
+export function getVideos() {
 
-  return fetch(`${URL}/${id}`)
+  return fetch(`${URL}`)
   .then(res => res.json())
   
 }

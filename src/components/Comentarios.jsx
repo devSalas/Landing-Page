@@ -28,13 +28,16 @@ export default function Comentarios({comments}) {
 
   return (
     <div>
+
       <div>
         <p>{comments.length} comments</p>
       </div>
+
       <form className='relative' onSubmit={handleSubmit}>
         <input className='bg-black p-2 border-b-2 border-neutral-600 w-full outline-none focus:border-white transition-all' onChange={handleChange} value={comment} type="text" placeholder='escribe un comentario' required/>
         <button className='absolute h-full right-0'>enviar</button>
       </form>
+
       <ul className='py-4 grid gap-4'>
         {
           comments.map(({id, user, content})=>(
@@ -50,6 +53,7 @@ export default function Comentarios({comments}) {
           ))
         }
       </ul>
+      
     </div>
   )
 }

@@ -1,9 +1,8 @@
-import React from 'react'
 import {Link} from 'wouter'
 
 export default function VideoCardSmall({title, video, image, user}) {
   return (
-    <Link href='/videos' >
+    <Link href={`/video/${id}`} >
       <div className="flex gap-4 items-center">
         <video className="rounded-xl aspect-video w-48" src={video}></video>
         <section>
