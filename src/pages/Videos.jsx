@@ -7,6 +7,7 @@ import AsideVideos from '../components/AsideVideos';
 export default function Video({params}) {
 
   const {data, isLoading} = useQuery({ queryKey: ['video'], queryFn: getVideos })
+  console.log(data)
   if(isLoading) return (<h2>esta cargando</h2>)
   
   const video = data?.find(el=>el.id === params.id)
@@ -27,12 +28,12 @@ export default function Video({params}) {
               <input className='p-2' type="image" src="no-me-gusta.svg" alt="" />
             </div>
           </article>
-          <UserCard user={video.user} />
+          <UserCard userId={video.userId} />
         </section>
-        <Comentarios comments={video.comments} />
+        <Comentarios comments={video.comment} />
       </main>
 
-      <AsideVideos videos={data} />
+      <AsideVideos/>
       
     </div>
   )

@@ -1,5 +1,4 @@
 import {useState, useRef} from 'react'
-import {videosData} from "../data"
 import VideoCard from './VideoCard'
 import {Link} from 'wouter'
 import {getVideos} from '../services/fech'
@@ -35,8 +34,8 @@ export default function SliderVideo() {
         <button onClick={handleRight} className='absolute h-full left-0 p-4 z-20 bg-gradient-to-r to-transparent from-black'>Left</button>
         <div ref={ref} className='scroll-smooth overflow-x-scroll flex flex-col flex-wrap h-72 gap-4'>
           {
-            data.map(({id, title, url, user})=>(
-              <VideoCard key={id} id={id} title={title} video={url} user={user.name} image={user.image} />
+            data.map(({id, title, url, userId})=>(
+              <VideoCard key={id} id={id} title={title} video={url} userId={userId} />
             ))
           }
         </div>

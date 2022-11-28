@@ -1,7 +1,11 @@
 import React from 'react'
 import VideoCardSmall from './VideoCardSmall'
+import {useQuery} from '@tanstack/react-query';
+import {getVideos} from '../services/fech';
 
 export default function AsideVideos({videos}) {
+
+  const {data} = useQuery({queryKey:["videos"], queryFn:getVideos})
 
   console.log({videos});
   return (
@@ -11,14 +15,13 @@ export default function AsideVideos({videos}) {
           <button className='text-neutral-500'>Veiw all</button>
         </div>
         {
-          videos?.map(({id, title, url, user})=>(
+          data?.map(({id, title, url, userId})=>(
             <VideoCardSmall
             key={id}
             id={id}
             title={title}
             video={url}
-            user={user.name}
-            image={user.image} />
+            userId={userId} />
           ))
         }
       </aside>

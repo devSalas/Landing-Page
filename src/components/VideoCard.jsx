@@ -1,7 +1,11 @@
 import React from 'react'
 import {Link} from 'wouter'
+//import {useQuery} from '@tanstack/react-query';
 
-export default function VideoCard({id, title, video, image, user}) {
+export default function VideoCard({id, title, video, userId}) {
+
+  //const {data} = useQuery({queryKey:["user"],queryFn: })
+
   return (
     <div className="max-w-xs flex flex-col gap-2">
       <Link href={`/video/${id}`} >
@@ -13,8 +17,8 @@ export default function VideoCard({id, title, video, image, user}) {
         </Link>
         <Link href={`/video/${id}`} >
           <div className='flex items-center gap-2'>
-            <img className='bg-red-500 w-8 h-8 rounded-full cursor-pointer' src={image} alt="" />
-            <p className='text-neutral-500 cursor-pointer'>{user}</p>
+            <img className='bg-red-500 w-8 h-8 rounded-full cursor-pointer' src={""} alt="" />
+            <p className='text-neutral-500 cursor-pointer'>{userId}</p>
           </div>
         </Link>
       </div>

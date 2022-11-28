@@ -1,3 +1,4 @@
+/*
 export const videosData = [
   {
     id:"a001",
@@ -91,38 +92,41 @@ export const video = {
   like: 1201,
   dislike: 56,
   date:"",
-  comments:[
-    {
-      id:"3001",
-      user: {
-        id:"0105",
-        name:"Moood",
-        image:"https://randomuser.me/api/portraits/men/67.jpg"
-      },
-      content:"You are doing the right thing",
-      date: ""
-    },
-    {
-      id:"3002",
-      user: {
-        id:"0108",
-        name:"Peter",
-        image:"https://randomuser.me/api/portraits/men/61.jpg"
-      },
-      content:"buen video",
-      date: ""
-    },
-    {
-      id:"3003",
-      user: {
-        id:"0110",
-        name:"gerson",
-        image:"https://randomuser.me/api/portraits/men/40.jpg"
-      },
-      content:"hola como estas",
-      date: ""
-    }
-  ]
+  
 }
 
+const comments = {
+  _id: {id:123145468768},
+  idVideo: "1101",
+  comments:[
+    {
+      id:01,
+      user:{
+        name:"jose",
+        image:""
+      }
+    }
+  ]
 
+}
+
+const comentarios = [
+  {
+    id:"",
+    texto:"abc",
+    idVideo:"1101"
+  },
+  {
+    id:"",
+    texto:"aaaaaaaaa",
+    idVideo:"1101"
+  },
+  {
+    id:"",
+    texto:"hola",
+    idVideo:"2123"
+  }
+]
+
+
+*/
