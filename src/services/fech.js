@@ -1,4 +1,4 @@
-const URL = "https://backend-playvideos-production.up.railway.app/api/v1/videos"
+const URL = "https://backend-playvideos-production.up.railway.app/api/v1"
 
 export function postComment(obj) {
 
@@ -16,7 +16,19 @@ export function postComment(obj) {
 
 export function getVideos() {
 
-  return fetch(`${URL}`)
+  return fetch(`${URL}/videos`)
+  .then(res => res.json())
+  
+}
+export function getUsers() {
+
+  return fetch(`${URL}/users`)
+  .then(res => res.json())
+  
+}
+export function getComments() {
+
+  return fetch(`${URL}/comments`)
   .then(res => res.json())
   
 }

@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
 import {nanoid} from 'nanoid'
-import {postComment} from '../services/fech'
+import {getComments} from '../services/fech'
+import {useQuery} from '@tanstack/react-query';
 
-export default function Comentarios({comments}) {
+export default function Comentarios({videoId}) {
+
+  const {data} = useQuery({queryKey:["comentarios"], queryFn: getComments})
 
   const [comment, setComment] = useState("")
+
+  console.log(data);
+  const dataComments = data?.find(el=>el.idVideo === videoId)
+
 
   const handleChange = (e) => setComment(e.target.value)
 
@@ -30,7 +37,7 @@ export default function Comentarios({comments}) {
     <div>
 
       <div>
-        <p>{comments.length} comments</p>
+        <p>{dataComments?.length} comments</p>
       </div>
 
       <form className='relative' onSubmit={handleSubmit}>
@@ -40,14 +47,14 @@ export default function Comentarios({comments}) {
 
       <ul className='py-4 grid gap-4'>
         {
-          comments.map(({id, user, content})=>(
+          dataComments?.comments?.map(({id, img, user, text})=>(
             <li key={id} className="flex gap-2">
               <div className='w-10 h-10 pt-1'>
-                <img className='rounded' src={user.image} alt="" />
+                <img className='rounded' src={img} alt="" />
               </div>
               <div>
-                <h4>{user.name}</h4>
-                <p className='text-neutral-400'>{content}</p>
+                <h4>{user}</h4>
+                <p className='text-neutral-400'>{text}</p>
               </div>
             </li>
           ))
@@ -57,3 +64,34 @@ export default function Comentarios({comments}) {
     </div>
   )
 }
+
+
+/*
+
+[
+  {
+    id:123456
+    idVideo: 234567
+    comments:[
+      {
+        id:456
+        text:"aaaaaa"
+        img:"img"
+        user: "jose"
+      }
+    ]
+  }
+
+
+]
+
+user.name
+user.img
+
+userName: "jose"
+userImg: "imagen"
+
+
+
+
+*/

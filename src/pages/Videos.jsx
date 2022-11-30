@@ -11,7 +11,7 @@ export default function Video({params}) {
   if(isLoading) return (<h2>esta cargando</h2>)
   
   const video = data?.find(el=>el.id === params.id)
-  
+  console.log(video);
 
   return (
     <div className='flex'>
@@ -28,9 +28,9 @@ export default function Video({params}) {
               <input className='p-2' type="image" src="no-me-gusta.svg" alt="" />
             </div>
           </article>
-          <UserCard userId={video.userId} />
+          <UserCard userId={video.idUser} />
         </section>
-        <Comentarios comments={video.comment} />
+        <Comentarios videoId={video.id} />
       </main>
 
       <AsideVideos/>

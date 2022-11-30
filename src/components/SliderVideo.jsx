@@ -9,7 +9,6 @@ export default function SliderVideo() {
 
   const {data, isLoading} = useQuery({queryKey:["videos"], queryFn: getVideos})
 
-  console.log(data)
 
   const ref = useRef()
 
