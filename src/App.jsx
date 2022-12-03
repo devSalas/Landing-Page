@@ -5,12 +5,15 @@ import Videos from './pages/Videos'
 import { Route } from 'wouter'
 import TabBar from './components/TabBar'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import Nav from './components/Nav'
 
 const queryClient = new QueryClient()
 
 function App() {
 	return (
 		<QueryClientProvider client={queryClient}>
+
+			<Nav/>
 			<div className="app max-w-7xl m-auto md:pt-20 md:pl-20">
 
 				<TabBar />
