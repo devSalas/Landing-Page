@@ -1,0 +1,8 @@
+use('DBplay')
+db.users.find({})
+/* db.users.insertOne( {
+    "name": "messsi",
+    "img": "https://randomuser.me/api/portraits/men/90.jpg",
+    "subscribed": 1
+  }) */
+
