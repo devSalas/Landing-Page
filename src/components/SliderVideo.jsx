@@ -7,7 +7,10 @@ import {useQuery} from '@tanstack/react-query'
 
 export default function SliderVideo() {
 
-  const {data, isLoading} = useQuery({queryKey:["videos"], queryFn: getVideos})
+  const {data, isLoading} = useQuery({
+    queryKey:["videos"], 
+    queryFn: getVideos
+  })
 
   const ref = useRef()
 
@@ -32,8 +35,8 @@ export default function SliderVideo() {
         <button onClick={handleRight} className='absolute h-full left-0 p-4 z-20 bg-gradient-to-r to-transparent from-black'>Left</button>
         <div ref={ref} className='scroll-smooth overflow-x-scroll flex flex-col flex-wrap h-72 gap-4'>
           {
-            data.map(({id, title, url, userId})=>(
-              <VideoCard key={id} id={id} title={title} video={url} userId={userId}  />
+            data.map(({id, title, url, idUser})=>(
+              <VideoCard key={id} id={id} title={title} video={url} userId={idUser}/>
             ))
           }
         </div>

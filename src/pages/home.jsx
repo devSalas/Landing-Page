@@ -6,7 +6,6 @@ import SliderVideo from "../components/SliderVideo";
 const Home = () => {
   return ( 
     <div>
-      
       <Header />
       <main>
         <SliderVideo />

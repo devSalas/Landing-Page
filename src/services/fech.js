@@ -26,14 +26,12 @@ export function getUsers() {
   .then(res => res.json())
   
 }
-export function getUsers(id) {
+export function getUser(id) {
 
-  return fetch(`${URL}/user/${id}`)
+  return fetch(`${URL}/users/${id}`)
   .then(res => res.json())
   
 }
-
-
 
 
 export function getComments() {
