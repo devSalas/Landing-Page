@@ -1,8 +1,114 @@
 use('DBplay')
-db.users.find({})
-/* db.users.insertOne( {
-    "name": "messsi",
-    "img": "https://randomuser.me/api/portraits/men/90.jpg",
-    "subscribed": 1
-  }) */
 
+/* db.videos.find({}) */
+
+db.videos.insertMany([
+  {
+    "title": "la paciencia de la rana",
+    "like": 20,
+    "dislike": 60,
+    "idUser": "638425f8d616d6888a564676",
+    "img": "",
+    "category": [
+      "nature"
+    ],
+    "url": "https://res.cloudinary.com/dzlog8uxo/video/upload/v1668809492/dev/Rana_hoof1v.mp4",
+    "date": {
+      "$date": "2022-11-30T03:35:51.134Z"
+      }
+  },
+  {
+    "title": "la mujer segun messi",
+    "like": 20,
+    "dislike": 60,
+    "idUser": "638cd512d8137ee2a61edf7f",
+    "img": "",
+    "category": [
+      "nature"
+    ],
+    "url": "https://res.cloudinary.com/dzlog8uxo/video/upload/v1668809491/dev/Mujer_xy28s4.mp4",
+    "date": {
+      "$date": "2022-11-30T03:35:51.134Z"
+    }
+  },
+  {
+    "title": "el sonido hermoso de la guitarra",
+    "like": 90,
+    "dislike": 60,
+    "idUser": "6386cef82767334b53d6d6f4",
+    "img": "",
+    "category": [
+      "architecture"
+    ],
+    "url": "https://res.cloudinary.com/dzlog8uxo/video/upload/v1668809490/dev/Guitarrista_aercmi.mp4",
+    "date": {
+      "$date": ""
+    }
+  },
+  {
+    "title": "el ciclo de la nubes",
+    "like": 90,
+    "dislike": 60,
+    "idUser": "638425f8d616d6888a564676",
+    "img": "",
+    "category": [
+      "nature"
+    ],
+    "url": "https://res.cloudinary.com/dzlog8uxo/video/upload/v1668809490/dev/Nubes_wvik0q.mp4",
+    "date": {
+      "$date": ""
+    }
+  },
+  {
+    "title": "el color hermoso de las nubes",
+    "like": 90,
+    "dislike": 60,
+    "idUser": "6382bc4a8ad12d58503c84fc",
+    "img": "",
+    "category": [
+      "nature"
+    ],
+    "url": "https://res.cloudinary.com/dzlog8uxo/video/upload/v1668809490/dev/Nubes_-_27197_lj1k9n.mp4",
+    "date": {
+      "$date": ""
+    }
+  },
+  {
+    "title": "la natacion,una forma de vida",
+    "like": 90,
+    "dislike": 60,
+    "idUser": "6386cef82767334b53d6d6f4",
+    "img": "",
+    "category": [
+      "social"
+    ],
+    "url": "https://res.cloudinary.com/dzlog8uxo/video/upload/v1668809490/dev/Natacion_asfxki.mp4",
+    "date": {
+      "$date": ""
+    }
+  },
+  {
+    "title": "loto",
+    "like": 90,
+    "dislike": 60,
+    "idUser": "638cd512d8137ee2a61edf7f",
+    "img": "",
+    "category": [
+      "social"
+    ],
+    "url": "https://res.cloudinary.com/dzlog8uxo/video/upload/v1668809490/dev/Loto_aj2q2l.mp4",
+    "date": {
+      "$date": ""
+      }
+  }
+  
+  
+  
+  
+  ])
+
+
+/* 
+
+,
+   */

@@ -26,6 +26,16 @@ export function getUsers() {
   .then(res => res.json())
   
 }
+export function getUsers(id) {
+
+  return fetch(`${URL}/user/${id}`)
+  .then(res => res.json())
+  
+}
+
+
+
+
 export function getComments() {
 
   return fetch(`${URL}/comments`)

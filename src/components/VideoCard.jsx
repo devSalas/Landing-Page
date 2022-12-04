@@ -3,9 +3,12 @@ import {Link} from 'wouter'
 //import {useQuery} from '@tanstack/react-query';
 
 export default function VideoCard({id, title, video, userId}) {
+/* 
+  const {data,isLoading } = useQuery({
+    queryKey:["users"],
+     queryFn: getUsers}) */
 
-  //const {data} = useQuery({queryKey:["user"],queryFn: })
-
+    
   return (
     <div className="max-w-xs flex flex-col gap-2">
       <Link href={`/video/${id}`} >

@@ -9,7 +9,6 @@ export default function SliderVideo() {
 
   const {data, isLoading} = useQuery({queryKey:["videos"], queryFn: getVideos})
 
-
   const ref = useRef()
 
   const handleRight = (e) => ref.current.scrollLeft += -400;
@@ -34,7 +33,7 @@ export default function SliderVideo() {
         <div ref={ref} className='scroll-smooth overflow-x-scroll flex flex-col flex-wrap h-72 gap-4'>
           {
             data.map(({id, title, url, userId})=>(
-              <VideoCard key={id} id={id} title={title} video={url} userId={userId} />
+              <VideoCard key={id} id={id} title={title} video={url} userId={userId}  />
             ))
           }
         </div>
