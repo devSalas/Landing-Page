@@ -9,7 +9,8 @@ module.exports = {
         layout: '64px 1fr',
       },
       gridTemplateColumns:{
-        layout:'64px 1fr'
+        layout:'64px 1fr',
+        layoutCard:'repeat(auto-fill, minmax(16rem, 1fr))'
       },
       colors:{
         blackp:'#fdee'

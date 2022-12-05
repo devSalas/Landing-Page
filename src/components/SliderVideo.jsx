@@ -31,13 +31,15 @@ export default function SliderVideo() {
 
 
       <article className="relative">
-        <button onClick={handleLeft} className='absolute h-full right-0 p-4 z-20 bg-gradient-to-l to-transparent from-black'>Rigth</button>
-        <button onClick={handleRight} className='absolute h-full left-0 p-4 z-20 bg-gradient-to-r to-transparent from-black'>Left</button>
-        <div ref={ref} className='scroll-smooth overflow-x-scroll flex flex-col flex-wrap h-72 gap-4'>
+{/*         <button onClick={handleLeft} className='absolute h-full right-0 p-4 z-20 bg-gradient-to-l to-transparent from-black'>Rigth</button>
+        <button onClick={handleRight} className='absolute h-full left-0 p-4 z-20 bg-gradient-to-r to-transparent from-black'>Left</button> */}
+        {/* <div ref={ref} className='scroll-smooth overflow-x-scroll flex flex-col flex-wrap h-72 gap-4'> */}
+        <div ref={ref} className='grid grid-cols-layoutCard  gap-4'>
           {
-            data.map(({id, title, url, idUser})=>(
-              <VideoCard key={id} id={id} title={title} video={url} userId={idUser}/>
-            ))
+            data.map(({id, title, url, idUser},i)=>{
+             /*  if(i>3)return; */
+              return <VideoCard key={id} id={id} title={title} video={url} userId={idUser}/>
+            })
           }
         </div>
       </article>
