@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'wouter';
+import Buscador from './Buscador';
 
 
 export default function Nav() {
@@ -21,11 +22,7 @@ export default function Nav() {
 					</nav>
 			</section>
 
-
-			<form className='relative h-full md:flex hidden justify-center items-center'>
-				<img src="search.svg" alt="search" className='absolute left-2'/>
-				<input type="text" className='w-72 rounded-md h-9 pl-10 bg-neutral-800' placeholder='Search'/>
-			</form>
+			<Buscador />
 
 			<section className='flex items-center gap-4'>
 				<nav className='flex gap-4'>

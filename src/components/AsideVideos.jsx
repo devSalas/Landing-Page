@@ -9,7 +9,7 @@ export default function AsideVideos({videos}) {
 
   console.log({videos});
   return (
-    <aside className=' w-1/3 ml-16 flex flex-col gap-8'>
+    <aside className='flex flex-col gap-8 md:px-0 px-4'>
         <div className='flex justify-between'>
           <h3 className='text-xl'>You may like</h3>
           <button className='text-neutral-500'>Veiw all</button>
