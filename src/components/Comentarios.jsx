@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {nanoid} from 'nanoid'
-import {getComments} from '../services/fech'
-import {useQuery} from '@tanstack/react-query';
+import {getComments,createComment} from '../services/fech'
+import {useMutation, useQuery, useQueryClient} from '@tanstack/react-query';
 
 export default function Comentarios({videoId}) {
 
@@ -9,7 +9,17 @@ export default function Comentarios({videoId}) {
 
   const [comment, setComment] = useState("")
 
-  console.log(data);
+  const queryClient = useQueryClient()
+
+  /* crear comentario */
+ const addComment = useMutation({
+    mutationFn:createComment,
+    onSuccess:()=>{
+    console.log("comment added")
+    queryClient.invalidateQueries('comentarios')
+    }
+  })
+
   const dataComments = data?.find(el=>el.idVideo === videoId)
 
 
@@ -17,6 +27,7 @@ export default function Comentarios({videoId}) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log("submit")
 
     const obj ={
       id:nanoid(),
@@ -28,11 +39,11 @@ export default function Comentarios({videoId}) {
       },
       date: new Date()
     }
-
-    postComment(obj)
+    addComment.mutate({videoId,obj})
 
   }
 
+  console.log(dataComments)
   return (
     <div>
 
@@ -47,14 +58,14 @@ export default function Comentarios({videoId}) {
 
       <ul className='py-4 grid gap-4'>
         {
-          dataComments?.comments?.map(({id, img, user, text})=>(
+          dataComments?.comments?.map(({id,user,content})=>(
             <li key={id} className="flex gap-2">
               <div className='w-10 h-10 pt-1'>
-                <img className='rounded' src={img} alt="" />
+                <img className='rounded w-6 h-6' src={user[0].image} alt="usuario" />
               </div>
               <div>
-                <h4>{user}</h4>
-                <p className='text-neutral-400'>{text}</p>
+                <h4>{user[0].name}</h4>
+                <p className='text-neutral-400'>{content|| "no hay comentario"}</p>
               </div>
             </li>
           ))
@@ -65,33 +76,3 @@ export default function Comentarios({videoId}) {
   )
 }
 
-
-/*
-
-[
-  {
-    id:123456
-    idVideo: 234567
-    comments:[
-      {
-        id:456
-        text:"aaaaaa"
-        img:"img"
-        user: "jose"
-      }
-    ]
-  }
-
-
-]
-
-user.name
-user.img
-
-userName: "jose"
-userImg: "imagen"
-
-
-
-
-*/

@@ -11,11 +11,11 @@ export default function Video({params}) {
   if(isLoading) return (<h2>esta cargando</h2>)
   
   const video = data?.find(el=>el.id === params.id)
-  console.log(video);
+  /* console.log(video); */
 
   return (
     <div className='flex'>
-      <main className='grid gap-8 w-2/3'>
+      <main className=''>
         <section>
           <video controls loop autoPlay className="rounded-xl min-w-full aspect-video" src={video.url} ></video>
         </section>
