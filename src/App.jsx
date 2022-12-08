@@ -12,19 +12,15 @@ const queryClient = new QueryClient()
 function App() {
 	return (
 		<QueryClientProvider client={queryClient}>
-
 			<Nav/>
+			<TabBar />
+
 			<div className="app max-w-7xl m-auto md:pt-20 md:pl-20">
-
-				<TabBar />
 				<div className="row-span-2 col-span-2 pb-72">
-
 					<Route path='/' component={Home} />
 					<Route path='/video/:id' component={Videos} />
 					<Route path='/view' component={View} />
-
 				</div>
-
 			</div>
 		</QueryClientProvider>
 	)
