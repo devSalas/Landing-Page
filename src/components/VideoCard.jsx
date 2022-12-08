@@ -27,20 +27,21 @@ export default function VideoCard({id, title, video: url, userId}) {
   }
 
   useEffect(()=>{
-    console.log("efecto")
     
     const timeout = setTimeout(() => {
       if (isHover) {
         setActive(true)
-        videoRef.current.play()
+        //videoRef.current.play()
       }
     }, 1000);
+
     return ()=>{
       clearTimeout(timeout)
-      videoRef.current.pause()
+      //videoRef.current.pause()
       setActive(false)
       
     }
+
   },[isHover])
 
 
@@ -49,7 +50,7 @@ export default function VideoCard({id, title, video: url, userId}) {
 
       <Link href={`/video/${id}`} >
         <div className='relative'>
-          <video ref={videoRef} onMouseEnter={handleEnter} className="rounded-xl aspect-video cursor-pointer" src={url}></video>
+          <video ref={videoRef} onMouseEnter={handleEnter} className="rounded-xl aspect-video w-full cursor-pointer" src={url}></video>
           <p className={`bg-black absolute bottom-0 m-2 p-2 text-sm ${isHover?"":"hidden"} ${active?"hidden":""}`}>Sigue colocando el cursor sobre el video para reproducirlo</p>
         </div>
       </Link>

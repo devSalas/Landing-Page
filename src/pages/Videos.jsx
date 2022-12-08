@@ -7,7 +7,7 @@ import AsideVideos from '../components/AsideVideos';
 export default function Video({params}) {
 
   const {data, isLoading} = useQuery({ queryKey: ['video'], queryFn: getVideos })
-  console.log(data)
+  //console.log(data)
   if(isLoading) return (<h2>esta cargando</h2>)
   
   const video = data?.find(el=>el.id === params.id)
