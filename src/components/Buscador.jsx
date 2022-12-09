@@ -21,23 +21,14 @@ export default function Buscador() {
     </div>
 
     <div className={`md:hidden flex items-center bg-black h-16 justify-center absolute top-0 ${active?"w-full right-0":" left-32"}`}>
-      {
-        active
-        ?(
-          <div className=''>
-            <FormSearch/>
-          </div>
-        )
-        : null
-      }
       
+      <div style={!active?{display:"none"}:{}} className=''>
+        <FormSearch/>
+      </div>
 
       <button onClick={handleClick} className=' p-2'>
-        {
-          active
-          ? <img src="x.svg" alt="x" className='w-6'/>
-          : <img src="search.svg" alt="search" className='w-6'/>
-        }
+        <img style={!active?{display:"none"}:{}} src="x.svg" alt="x" className='w-6'/>
+        <img style={active?{display:"none"}:{}} src="search.svg" alt="search" className='w-6'/>
       </button>
     </div>
 

@@ -25,12 +25,6 @@ export default function Nav() {
 			<Buscador />
 
 			<section className='flex items-center gap-4'>
-				<nav className='flex gap-4'>
-					<img src="search.svg" alt="message" className='md:hidden block'/>
-					<img src="message-circle.svg" alt="message"/>
-					<img src="bell.svg" alt="bell"/>
-				</nav>
-
 				<div className="perfil flex gap-4 items-center">
 					<p className='md:block hidden'>nombre</p>
 					<figure className='w-10 h-10 bg-red-500  rounded border-2 border-fuchsia-300'>
