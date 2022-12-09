@@ -6,7 +6,7 @@ import { Route } from 'wouter'
 import TabBar from './components/TabBar'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Nav from './components/Nav'
-
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 const queryClient = new QueryClient()
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
 					<Route path='/view' component={View} />
 				</div>
 			</div>
+			<ReactQueryDevtools/>
 		</QueryClientProvider>
 	)
 }

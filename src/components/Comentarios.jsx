@@ -20,6 +20,9 @@ export default function Comentarios({videoId}) {
     }
   })
 
+  const a = useQueryClient("video")
+  console.log(a)
+
   const dataComments = data?.find(el=>el.idVideo === videoId)
 
 

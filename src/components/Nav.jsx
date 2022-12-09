@@ -1,8 +1,32 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react'
 import {Link} from 'wouter';
-
+import {getUser} from '../services/fech';
+import {useState} from 'react'
+import BtnsRegistro from './BtnsRegistro';
 
 export default function Nav() {
+/* const [nombreUsuario, setNombreUsuario] = useState(""); */
+	const [isRegistered, setisRegistered] = useState(false);
+		const lg=localStorage
+		const userId= localStorage.getItem('id')
+
+		if(userId != null) setisRegistered(true)
+
+		let user;
+
+		if(isRegistered){
+
+			usuario=useQuery({
+				queryKey:["user",userId],
+				 queryFn: ()=>getUser(userId),
+				 onSuccess:()=>{
+		
+				}
+			})
+		
+		}
+
   return (
     <div className="sticky top-0 flex items-center justify-between gap-4 bg-black text-white z-50 h-16 px-4">
 
@@ -29,15 +53,13 @@ export default function Nav() {
 
 			<section className='flex items-center gap-4'>
 				<nav className='flex gap-4'>
-					<img src="search.svg" alt="message" className='md:block hidden'/>
-					<img src="message-circle.svg" alt="message"/>
-					<img src="bell.svg" alt="bell"/>
+					<BtnsRegistro/>
 				</nav>
 
 				<div className="perfil flex gap-4 items-center">
-					<p className='md:block hidden'>nombre</p>
-					<figure className='w-10 h-10 bg-red-500  rounded border-2 border-fuchsia-300'>
-						<img src="https://github.com/GersonGarayar20.png" alt="" />
+					{isRegistered && <p className='md:block hidden'>{user?.name|| "nombre"} </p>}
+					<figure className='w-10 h-10 bg-slate-500  rounded-full border-2 border-fuchsia-300'>
+						{!isRegistered && <img src={user?.img} alt="" className="" />}
 					</figure>
 				</div>
 			</section>
