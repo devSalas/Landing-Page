@@ -11,7 +11,7 @@ export default function Video({params}) {
   if(isLoading) return (<h2>esta cargando</h2>)
   
   const video = data?.find(el=>el.id === params.id)
-  console.log(video);
+  /* console.log(video); */
 
   return (
     <div className='grid lg:grid-cols-layout md:gap-8 pr-0 md:pr-10'>

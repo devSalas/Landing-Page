@@ -7,7 +7,7 @@ export default function AsideVideos({videos}) {
 
   const {data} = useQuery({queryKey:["videos"], queryFn:getVideos})
 
-  console.log({videos});
+/*   console.log({videos}); */
   return (
     <aside className='flex flex-col gap-8 md:px-0 px-4'>
         <div className='flex justify-between'>

@@ -12,14 +12,10 @@ export default function View({params}) {
     let texto = decodeURI(params.word).toLowerCase()
     let nombre = el.title.toLowerCase()
 
-    if (nombre.indexOf(texto) !== -1) {
-      console.log(nombre)
-      return el
-    }
+    if (nombre.indexOf(texto) !== -1) return el
 
   })
 
-  console.log(resultado);
 
   if (isLoading) return (<h1>buscando</h1>)
   if (resultado.length === 0) return(<h2 className='p-4 text-xl'>no se encontro ningun resultado.</h2>)

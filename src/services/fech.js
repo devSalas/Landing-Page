@@ -1,6 +1,6 @@
 const URL = "https://backend-playvideos-production.up.railway.app/api/v1"
-
-export function postComment(obj) {
+//const URL="http://localhost:4000/api/v1"
+/* export function postComment(obj) {
 
   const option = {
     method: "POST",
@@ -12,7 +12,7 @@ export function postComment(obj) {
 
   fetch(`${URL}`,option)
   
-}
+} */
 
 export function getVideos() {
 
@@ -37,6 +37,18 @@ export function getUser(id) {
 export function getComments() {
 
   return fetch(`${URL}/comments`)
+  .then(res => res.json())
+  
+}
+export function createComment({videoId,obj}) {
+
+  return fetch(`${URL}/comments/${videoId}`,{
+    method: 'POST',
+    body:JSON.stringify(obj),
+    headers: {
+      "Content-type": "application/json"
+    }
+  })
   .then(res => res.json())
   
 }
