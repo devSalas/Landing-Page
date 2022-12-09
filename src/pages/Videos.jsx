@@ -14,10 +14,17 @@ export default function Video({params}) {
   /* console.log(video); */
 
   return (
+<<<<<<< HEAD
     <div className='grid lg:grid-cols-layout md:gap-8 pr-0 md:pr-10'>
       <main className='grid gap-8 content-start '>
         <section className=''>
           <video controls loop autoPlay className="md:rounded-xl min-w-full aspect-video" src={video.url} ></video>
+=======
+    <div className='flex'>
+      <main className=''>
+        <section>
+          <video controls loop autoPlay className="rounded-xl min-w-full aspect-video" src={video.url} ></video>
+>>>>>>> 55200377d4e538ecc225ebc91eec43ca48eb3953
         </section>
 
         <section className='md:px-0 px-4'>
