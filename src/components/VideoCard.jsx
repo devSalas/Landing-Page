@@ -49,7 +49,7 @@ export default function VideoCard({id, title, video: url, userId}) {
       <Link href={`/video/${id}`} >
         <div className='relative'>
           <video ref={videoRef} onMouseEnter={handleEnter} className={`${active?"":"rounded-xl"} aspect-video w-full cursor-pointer`} src={url}></video>
-          <p className={`bg-black absolute bottom-0 m-2 p-2 text-sm ${isHover?"":"hidden"} ${active?"hidden":""}`}>Sigue colocando el cursor sobre el video para reproducirlo</p>
+          <p className={`bg-black absolute bottom-0 m-2 p-2 cursor-pointer text-sm ${isHover?"":"hidden"} ${active?"hidden":""}`}>Sigue colocando el cursor sobre el video para reproducirlo</p>
         </div>
       </Link>
 

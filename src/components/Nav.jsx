@@ -26,7 +26,7 @@ export default function Nav() {
 
 			<section className='flex items-center gap-4'>
 				<nav className='flex gap-4'>
-					<img src="search.svg" alt="message" className='md:block hidden'/>
+					<img src="search.svg" alt="message" className='md:hidden block'/>
 					<img src="message-circle.svg" alt="message"/>
 					<img src="bell.svg" alt="bell"/>
 				</nav>

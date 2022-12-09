@@ -1,24 +1,48 @@
 import {useState} from 'react'
-import {useLocation} from 'wouter'
+import FormSearch from './FormSearch'
+
 
 export default function Buscador() {
 
-  const [word, setWord] = useState("")
-  const [location, setLocation] = useLocation();
+  const [active, setActive] = useState(false)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (word.length > 0) {
-      setLocation(`/search/${word}`)
-    }
+
+  const handleClick = (e) => {
+    setActive(!active)
   }
 
-  const handleChange = (e) => setWord(e.target.value)
-
   return (
-    <form onSubmit={handleSubmit} className='relative h-full md:flex hidden justify-center items-center'>
-      <img src="search.svg" alt="search" className='absolute left-2'/>
-      <input onChange={handleChange} type="text" value={word} className='w-72 rounded-md h-9 pl-10 bg-neutral-800' placeholder='Search'/>
-    </form>
+    <>
+    <div className={`flex items-center ${active?"":""} bg-orange-800`}>
+
+      <div className='md:block hidden'>
+        <FormSearch/>
+      </div>
+    </div>
+
+    <div className={`md:hidden flex items-center bg-black h-16 justify-center absolute top-0 ${active?"w-full right-0":" left-32"}`}>
+      {
+        active
+        ?(
+          <div className=''>
+            <FormSearch/>
+          </div>
+        )
+        : null
+      }
+      
+
+      <button onClick={handleClick} className=' p-2'>
+        {
+          active
+          ? <img src="x.svg" alt="x" className='w-6'/>
+          : <img src="search.svg" alt="search" className='w-6'/>
+        }
+      </button>
+    </div>
+
+
+    </>
+
   )
 }
