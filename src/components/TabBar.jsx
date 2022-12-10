@@ -2,11 +2,15 @@ import React from 'react'
 import {Link} from 'wouter'
 import ModalIcons from './modalIcons'
 import { useRef } from 'react'
+import  { useState } from 'react';
+
 export default function Toobar() {
-	
+	const [WantExit, setWantExit] = useState(false);
+
+
 	const imgSalirRef=useRef("")
 	const logOutRef=useRef("")
-	const handleLogOut=()=>{
+	const handleClickConfig=()=>{
 		const $button=logOutRef.current
 		$button.classList.toggle("hidden")
 	}
@@ -36,9 +40,9 @@ export default function Toobar() {
 				</div>	
 
 					<div className="relative " >
-						<img onClick={handleLogOut} ref={imgSalirRef} className='p-4 cursor-pointer' src="./settings.svg" alt="" />
+						<img onClick={handleClickConfig} ref={imgSalirRef} className='p-4 cursor-pointer' src="./settings.svg" alt="" />
 
-						<div ref={logOutRef} className=" top-0 left-14 absolute w-40 h-20 bg-black rounded-xl border-2  border-fuchsia-600  flex justify-center align-center hover:border-white ">
+						 <div ref={logOutRef} className="hidden top-0 left-14 absolute w-40 h-20 bg-black rounded-xl border-2  border-fuchsia-600  flex justify-center align-center hover:border-white ">
 
 						<button onClick={deleteSesion} className= " m-auto rounded-md border-2 py-2 px-4 border-fuchsia-600 text-white  flex justify-center align-center gap-2 hover:border-white hover:scale-105 hover:transition-transform">
 

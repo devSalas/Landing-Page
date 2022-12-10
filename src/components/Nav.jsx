@@ -4,31 +4,34 @@ import {Link} from 'wouter';
 import {getUser} from '../services/fech';
 import {useState} from 'react'
 import BtnsRegistro from './BtnsRegistro';
+import Buscador from './Buscador';
+
 
 export default function Nav() {
-/* const [nombreUsuario, setNombreUsuario] = useState(""); */
 	const [isRegistered, setisRegistered] = useState(false);
-		const lg=localStorage
+	const [user, setUser] = useState("");
+	/* 	const lg=localStorage
 		const userId= localStorage.getItem('id')
 
 		if(userId != null) setisRegistered(true)
 
-		let user;
+		
 
 		if(isRegistered){
 
-			usuario=useQuery({
+			user=useQuery({
 				queryKey:["user",userId],
 				 queryFn: ()=>getUser(userId),
-				 onSuccess:()=>{
-		
+				 onSuccess:(user)=>{
+						setUser(user)
 				}
 			})
 		
-		}
+		} */
 
   return (
-    <div className="sticky top-0 flex items-center justify-between gap-4 bg-black text-white z-50 h-16 px-4">
+		<>
+    <div className="sticky top-0 flex items-center justify-between gap-4 bg-black text-white z-50 h-16 px-4 border-b-2 border-b-white-300">
 
 			<section className='flex gap-8'>
 				<Link href='/'>
@@ -38,22 +41,18 @@ export default function Nav() {
 					</div>
 				</Link>
 
-					<nav className="md:flex hidden items-center gap-4 text-xs font-bold">
+				{/* 	<nav className="md:flex hidden items-center gap-4 text-xs font-bold">
 						<a href="">TOP STREAMING</a>
 						<a href="">GAMES</a>
 						<a href="">TEAMS</a>
-					</nav>
+					</nav> */}
 			</section>
 
-
-			<form className='relative h-full md:flex hidden justify-center items-center'>
-				<img src="search.svg" alt="search" className='absolute left-2'/>
-				<input type="text" className='w-72 rounded-md h-9 pl-10 bg-neutral-800' placeholder='Search'/>
-			</form>
+			<Buscador />
 
 			<section className='flex items-center gap-4'>
 				<nav className='flex gap-4'>
-					<BtnsRegistro/>
+					{<BtnsRegistro/>}
 				</nav>
 
 				<div className="perfil flex gap-4 items-center">
@@ -63,8 +62,10 @@ export default function Nav() {
 					</figure>
 				</div>
 			</section>
-
+					
 
 		</div>
+		
+		</>
   )
 }

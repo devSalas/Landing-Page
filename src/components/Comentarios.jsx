@@ -48,7 +48,7 @@ export default function Comentarios({videoId}) {
 
   console.log(dataComments)
   return (
-    <div>
+    <div className='md:px-0 px-4'>
 
       <div>
         <p>{dataComments?.length} comments</p>
@@ -56,7 +56,7 @@ export default function Comentarios({videoId}) {
 
       <form className='relative' onSubmit={handleSubmit}>
         <input className='bg-black p-2 border-b-2 border-neutral-600 w-full outline-none focus:border-white transition-all' onChange={handleChange} value={comment} type="text" placeholder='escribe un comentario' required/>
-        <button className='absolute h-full right-0'>enviar</button>
+        <button className='absolute h-full right-0 hover:text-fuchsia-400 transition-all'>enviar</button>
       </form>
 
       <ul className='py-4 grid gap-4'>

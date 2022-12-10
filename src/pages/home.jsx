@@ -8,6 +8,7 @@ const Home = () => {
   return ( 
     <>
       <Header />
+      
       <main>
         <SliderVideo />
       </main>

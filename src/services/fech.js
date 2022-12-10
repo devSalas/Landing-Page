@@ -1,5 +1,9 @@
 /* const URL = "https://backend-playvideos-production.up.railway.app/api/v1" */
 const URL="http://localhost:4000/api/v1"
+/* const URL = "https://backend-playvideos-production.up.railway.app/api/v1" */
+//const URL="http://localhost:4000/api/v1"
+
+
 
 
 export function getVideos() {
@@ -33,6 +37,18 @@ export function createUser(usuario) {
 export function getUser(id) {
 
   return fetch(`${URL}/users/${id}`)
+  .then(res => res.json())
+  
+}
+export function verificarUsuario(user) {
+
+  return fetch(`${URL}/verificarUsuario`,{
+    method: 'POST',
+    body:JSON.stringify(user),
+    headers: {
+      "Content-type": "application/json"
+    }
+  })
   .then(res => res.json())
   
 }
