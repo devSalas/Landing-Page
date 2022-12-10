@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from 'wouter'
-import ModalIcons from './modalIcons'
 import { useRef } from 'react'
 import  { useState } from 'react';
 
