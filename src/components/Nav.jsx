@@ -52,7 +52,7 @@ export default function Nav() {
 
 			<section className='flex items-center gap-4'>
 				<nav className='flex gap-4'>
-					{<BtnsRegistro/>}
+					{/* {<BtnsRegistro/>} */}
 				</nav>
 
 				<div className="perfil flex gap-4 items-center">
