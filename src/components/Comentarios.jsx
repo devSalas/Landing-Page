@@ -14,14 +14,16 @@ export default function Comentarios({videoId}) {
   /* crear comentario */
  const addComment = useMutation({
     mutationFn:createComment,
-    onSuccess:()=>{
+    onSuccess:(data)=>{
+      console.log((data))
     console.log("comment added")
+    setComment("")
     queryClient.invalidateQueries('comentarios')
     }
   })
 
   const a = useQueryClient("video")
-  console.log(a)
+  /* console.log(a) */
 
   const dataComments = data?.find(el=>el.idVideo === videoId)
 
@@ -30,7 +32,7 @@ export default function Comentarios({videoId}) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("submit")
+    /* console.log("submit") */
 
     const obj ={
       id:nanoid(),
@@ -46,7 +48,7 @@ export default function Comentarios({videoId}) {
 
   }
 
-  console.log(dataComments)
+ /*  console.log(dataComments) */
   return (
     <div className='md:px-0 px-4'>
 

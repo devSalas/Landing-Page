@@ -8,13 +8,18 @@ import ModalSignUp from './ModalSignUp'
 import ModalLogUp from './ModalLogUp'
 
 export const ModalPortal = ({signIn,login}) => {
+  const [isVisible, setIsVisible] = useState(true);
 
+  const handleIsVisible=()=>{
+    setIsVisible(false)
+    console.log(isVisible)
+  }
 
   return ReactDOM.createPortal(
     <>
     <div className=" fixed p-4 h-screen w-screen flex justify-center items-center  z-40 ">
-      {signIn && <ModalSignUp/>}
-      {login && <ModalLogUp/>}
+      {isVisible && signIn && <ModalSignUp handleIsVisible={handleIsVisible}/>}
+      {isVisible && login && <ModalLogUp  handleIsVisible={handleIsVisible}/>}
       
     </div>
     </>

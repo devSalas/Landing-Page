@@ -19,6 +19,7 @@ const ModalLogUp = () => {
       lg.setItem("id",usuario.id)
       lg.setItem("email",usuario.email)
       lg.setItem("name",usuario.name)
+      location.reload()
     }
      
   })

@@ -17,7 +17,7 @@ export default function Toobar() {
 	const deleteSesion=()=>{
 		const lg=localStorage
 		lg.clear()
-		/* Location.reload() */
+		location.reload()
 	}
 
   return (	
@@ -26,17 +26,7 @@ export default function Toobar() {
 			<Link href='/' >
 				<img className='p-4 cursor-pointer' src="./home.svg" alt="" />
 			</Link>
-				<div className="relative">
-					<img className='p-4 cursor-pointer' src="./plus-square.svg" alt="" />
-				</div>
 
-				<img className='p-4 cursor-pointer' src="./folder.svg" alt="" />
-				
-				<div className='relative'>
-					<img className='p-4 cursor-pointer' src="./star.svg" alt="" />
-					{/* <ModalIcons/> */}
-					
-				</div>	
 
 					<div className="relative " >
 						<img onClick={handleClickConfig} ref={imgSalirRef} className='p-4 cursor-pointer' src="./settings.svg" alt="" />

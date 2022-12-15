@@ -1,5 +1,5 @@
-const URL = "https://backend-playvideos-production.up.railway.app/api/v1"
-/* const URL="http://localhost:4000/api/v1" */
+/* const URL = "https://backend-playvideos-production.up.railway.app/api/v1" */
+const URL="http://localhost:4000/api/v1"
 
 
 
@@ -19,8 +19,7 @@ export function getUsers() {
 }
 export function createUser(usuario) {
 
-  console.log(usuario)
-  if(usuario.name=="" || usuario.email=="") return;
+ 
   return fetch(`${URL}/user`,{
     method: 'POST',
     body:JSON.stringify(usuario),
@@ -34,7 +33,8 @@ export function createUser(usuario) {
 
 
 export function getUser(id) {
-
+  if(id == null || id == undefined) return {message:"hay un error en el id",status:false}
+  console.log(36,id);
   return fetch(`${URL}/users/${id}`)
   .then(res => res.json())
   

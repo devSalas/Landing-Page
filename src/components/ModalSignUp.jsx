@@ -3,28 +3,29 @@ import { QueryClient, useMutation } from '@tanstack/react-query'
 import { createUser } from '../services/fech'
 import { useState, useRef } from 'react'
 const ModalSignUp = () => {
+
 	const [send, setSend] = useState(false)
 	const [messageRes, setMessageRes] = useState('')
 	const [err, setErr] = useState('')
-	/* const lg= localStorage
-    const id= lg.getItem("id")
-  const email = lg.getItem("email")
-  const login="df"; */
+
 	const $ModalSingUp = useRef('')
+
 	let nombreUsuario = useMutation({
 		mutationFn: createUser,
-		onSuccess: usuario => {
-			console.log(usuario)
-			setMessageRes(usuario)
-			if (usuario.status) {
+		onSuccess: data => {
+			console.log(data)
+			setMessageRes(data)
+			if (data.status) {
 				const $singUp = $ModalSingUp.current
 				$singUp.classList.toggle('hidden')
 				const lg = localStorage
-				lg.setItem('id', usuario.id)
-				lg.setItem('email', usuario.email)
-				lg.setItem('name', usuario.name)
+				lg.setItem('id', data.user.id)
+				lg.setItem('email', data.user.email)
+				lg.setItem('name', data.user.name)
+			
+				location.reload()
 			}
-		},
+		}
 	})
 
 	const handleSubmit = e => {
@@ -32,6 +33,7 @@ const ModalSignUp = () => {
 
 		const formData = new FormData(e.target)
 		let usuario = Object.fromEntries(formData)
+
 		usuario.name = usuario.name.trim()
 		usuario.email = usuario.email.trim()
 		const { email, name, password } = usuario
@@ -85,12 +87,12 @@ const ModalSignUp = () => {
 				/>
 				{messageRes != '' && (
 					<div className="text-white">
-						{`${messageRes.message} ,  iniciar sesion`}
+						{`${ nombreUsuario.isSuccess && messageRes?.message} ,  iniciar sesion`}
 					</div>
 				)}
 				{err}
 				<div className="flex gap-8">
-					<button className=" text-white border-2 rounded-md border-slate-400 px-4 py-2 bg-pink-500">
+					<button  className=" text-white border-2 rounded-md border-slate-400 px-4 py-2 bg-pink-500">
 						Registrarse
 					</button>
 				</div>
