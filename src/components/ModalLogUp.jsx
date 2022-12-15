@@ -13,13 +13,17 @@ const ModalLogUp = () => {
     onSuccess:(usuario)=>{
       setData(usuario)
       console.log(usuario) 
-      const $Login = $modalLogin.current
-      $Login.classList.toggle("hidden") 
-      const lg =localStorage
-      lg.setItem("id",usuario.id)
-      lg.setItem("email",usuario.email)
-      lg.setItem("name",usuario.name)
-      location.reload()
+        setErr(usuario.message)
+      if(usuario.name){
+        
+        const $Login = $modalLogin.current
+        $Login.classList.toggle("hidden") 
+        const lg =localStorage
+        lg.setItem("id",usuario.id)
+        lg.setItem("email",usuario.email)
+        lg.setItem("name",usuario.name)
+        location.reload()
+      }
     }
      
   })
@@ -55,13 +59,13 @@ const ModalLogUp = () => {
     </div>
     <form onSubmit={handleSubmit} action="" className="m-auto flex flex-col justify-center items-center gap-7 mt-4 w-11/12">
       <input className="block  rounded-md p-4 border-gray-300  w-5/6    h-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" name="email"
-      placeholder="correo electronico"
+      placeholder="correo electronico" required
       />
       <input className="block  rounded-md p-4 border-gray-300  w-5/6    h-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" name="password"
-      placeholder="escribe tu contraseña"
+      placeholder="escribe tu contraseña" required
       />
       {!user.isLoading && <div className="text-white">
-             {err}
+             {`${err}, vueva a intentarlo`}
         </div>}
       <div className="flex gap-8">
         <button  onClick={hanldeClickLogIn} className=" text-white border-2 rounded-md border-slate-400 px-4 py-2 bg-pink-500">iniciar sesion</button>

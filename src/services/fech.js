@@ -34,7 +34,6 @@ export function createUser(usuario) {
 
 export function getUser(id) {
   if(id == null || id == undefined) return {message:"hay un error en el id",status:false}
-  console.log(36,id);
   return fetch(`${URL}/users/${id}`)
   .then(res => res.json())
   
