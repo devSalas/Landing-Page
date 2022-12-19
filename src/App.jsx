@@ -7,14 +7,16 @@ import TabBar from './components/TabBar'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Nav from './components/Nav'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { HashRouter,Link, NavLink } from "react-router-dom";
 const queryClient = new QueryClient()
+
 
 function App() {
 	return (
+
 		<QueryClientProvider client={queryClient}>
 			<Nav/>
 			<TabBar />
-
 			<div className="app max-w-7xl m-auto md:pl-20 md:pr-10">
 				<div className="row-span-2 col-span-2 pb-72">
 					<Route path='/' component={Home} />
@@ -23,7 +25,7 @@ function App() {
 				</div>
 			</div>
 			<ReactQueryDevtools/>
-		</QueryClientProvider>
+		</QueryClientProvider> 
 	)
 }
 
